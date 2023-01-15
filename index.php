@@ -1,3 +1,17 @@
+<?php include('database.php'); 
+
+// Update the data
+    if(isset($_GET['edit']))
+    {
+        $id = $_GET['edit'];
+        $edit = true;
+        $record = mysqli_query($con, "SELECT * FROM todolist WHERE id = $id");
+        $getRec = mysqli_fetch_array($record);
+        $task = $getRec['task'];
+        $notes = $getRec['notes'];
+        $id = $getRec['id'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
